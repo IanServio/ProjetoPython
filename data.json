@@ -1,0 +1,5 @@
+[
+  {"login": "admin", "senha": "1234"},
+  {"login": "user", "senha": "abc123"},
+  {"login": "ian.servio", "senha": "12345"}
+]
