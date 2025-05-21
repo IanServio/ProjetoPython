@@ -32,6 +32,14 @@ def handleLogin():
         messagebox.showerror("Erro", "Login ou senha incorretos.")
         print("❌ Tentativa de login com credenciais inválidas.")
 
+
+def handleCadastrar():
+    root.destroy
+    janela_cadastro = tk.TopLevel()
+    janela.title("Cadastro de usuario")
+    titulo = tk.Label(janela_cadastro, text=("Cadastre-se"))
+    title.pack()
+
 frame = tk.Frame(root, bg="white", bd=2, relief=tk.GROOVE)
 frame.pack(pady=20, padx=40)
 
@@ -47,6 +55,11 @@ input_senha.pack(pady=5, padx=10)
 
 btn_acessar = tk.Button(frame, text="Acessar", command=handleLogin, bg="#4CAF50", fg="white", width=20, font=("Arial", 10))
 btn_acessar.pack(pady=(20, 10))
+
+
+btn_cadastrar = tk.Button(frame, text="Cadastrar-se", command=handleCadastrar, bg="#4aa4fe", fg="white", width=20, font=("Arial", 10))
+btn_cadastrar.pack(pady=(20, 10))
+
 
 btn_sair = tk.Button(frame, text="Sair", command=root.destroy, bg="#f44336", fg="white", width=20, font=("Arial", 10))
 btn_sair.pack(pady=(0, 20))
