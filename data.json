@@ -1,6 +1,33 @@
 [
-  {"login": "admin", "senha": "1234", "email": "admin@admin.com", "numero": "83982466652"},
-  {"login": "user", "senha": "abc123", "email": "user@user.com", "numero": "83985426955"},
-  {"login": "ian.servio", "senha": "12345", "email": "ian.servio@gmail.com", "numero": "83987666140"},
-  {"login": "vinicius.maciel", "senha": "98765", "email": "vinicius.maciel@gmail.com", "numero": "83987543266"}
+    {
+        "login":"admin",
+        "senha":"1234",
+        "email":"admin@admin.com",
+        "numero":83982466652
+    },
+    {
+        "login":"user",
+        "senha":"abc123",
+        "email":"user@user.com",
+        "numero":83985426955
+    },
+    {
+        "login":"ian.servio",
+        "senha":"12345",
+        "email":"ian.servio@gmail.com",
+        "numero":83987666140
+    },
+    {
+        "login":"vinicius.maciel",
+        "senha":"98765",
+        "email":"vinicius.maciel@gmail.com",
+        "numero":83987543266
+    },
+    {
+        "login":"joao.gabriel",
+        "senha":"87645",
+        "email":"joao.gabriel@gmail.com",
+        "numero":83985643655
+    }
+   
 ]

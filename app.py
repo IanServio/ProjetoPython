@@ -74,6 +74,11 @@ def handleCadastrar():
         
         global df
         novo_usuario = {"login": login, "senha": senha, "email": email, "numero": numero}
+
+        if not login or not senha or not email or not numero:
+            messagebox.showerror("Erro", "Todos os campos devem ser preenchidos.")
+            return
+        
         df = pd.concat([df, pd.DataFrame([novo_usuario])], ignore_index=True)
 
         
