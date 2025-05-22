@@ -1,5 +1,6 @@
 [
   {"login": "admin", "senha": "1234", "email": "admin@admin.com"},
   {"login": "user", "senha": "abc123", "email": "user@user.com"},
-  {"login": "ian.servio", "senha": "12345", "email": "ianservioppe6@gmail.com"}
+  {"login": "ian.servio", "senha": "12345", "email": "ian.servio@gmail.com"},
+  {"login": "vinicius.maciel", "senha": "98765", "email": "vinicius.maciel@gmail.com"}
 ]

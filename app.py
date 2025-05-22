@@ -22,7 +22,7 @@ def handleLogin():
     login = input_login.get()
     senha = input_senha.get()
 
-    # Verifica se há correspondência no DataFrame
+
     usuario_encontrado = df[(df['login'] == login) & (df['senha'] == senha)]
 
     if not usuario_encontrado.empty:
@@ -34,11 +34,44 @@ def handleLogin():
 
 
 def handleCadastrar():
+
     root.destroy
-    janela_cadastro = tk.TopLevel()
-    janela.title("Cadastro de usuario")
+    janela_cadastro = tk.Tk()
+    janela_cadastro.geometry("600x600+700+300")
+    janela_cadastro.title("Cadastro de usuario")
     titulo = tk.Label(janela_cadastro, text=("Cadastre-se"))
-    title.pack()
+
+    frame = tk.Frame(janela_cadastro, bg="white", bd=2, relief=tk.GROOVE)
+    frame.pack(pady=20, padx=40)
+
+    txt_login = tk.Label(frame, text="Login", background="white", font=("Arial", 11))
+    txt_login.pack(pady=(20, 5), padx=10)
+    input_login = tk.Entry(frame, width=30, font=("Arial", 11))
+    input_login.pack(pady=5, padx=10)
+
+    txt_senha = tk.Label(frame, text="Senha", background="white", font=("Arial", 11))
+    txt_senha.pack(pady=(15, 5), padx=10)
+    input_senha = tk.Entry(frame, width=30, font=("Arial", 11))
+    input_senha.pack(pady=5, padx=10)
+
+    txt_email = tk.Label(frame, text="Email", background="white", font=("Arial", 11))
+    txt_email.pack(pady=(20, 5), padx=10)
+    input_email = tk.Entry(frame, width=30, font=("Arial", 11))
+    input_email.pack(pady=5, padx=10)
+
+    txt_numero = tk.Label(frame, text="Numero", background="white", font=("Arial", 11))
+    txt_numero.pack(pady=(20, 5), padx=10)
+    input_numero = tk.Entry(frame, width=30, font=("Arial", 11))
+    input_numero.pack(pady=5, padx=10)
+
+    btn_cadastrar = tk.Button(frame, text="Cadastrar", bg="#4CAF50", fg="white", width=20, font=("Arial", 10))
+    btn_cadastrar.pack(pady=(20, 10))
+
+
+
+    janela_cadastro.pack()
+
+
 
 frame = tk.Frame(root, bg="white", bd=2, relief=tk.GROOVE)
 frame.pack(pady=20, padx=40)
