@@ -35,7 +35,7 @@ def handleLogin():
 
 def handleCadastrar():
 
-    root.destroy
+    root.destroy()
     janela_cadastro = tk.Tk()
     janela_cadastro.geometry("600x600+700+300")
     janela_cadastro.title("Cadastro de usuario")
