@@ -64,10 +64,26 @@ def handleCadastrar():
     input_numero = tk.Entry(frame, width=30, font=("Arial", 11))
     input_numero.pack(pady=5, padx=10)
 
-    btn_cadastrar = tk.Button(frame, text="Cadastrar", bg="#4CAF50", fg="white", width=20, font=("Arial", 10))
+    
+    def salvarCadastro():
+        login = input_login.get()
+        senha = input_senha.get()
+        email = input_email.get()
+        numero = input_numero.get()
+
+        
+        global df
+        novo_usuario = {"login": login, "senha": senha, "email": email, "numero": numero}
+        df = pd.concat([df, pd.DataFrame([novo_usuario])], ignore_index=True)
+
+        
+        df.to_json(caminho_arquivo, orient="records", indent=4, force_ascii=False)
+
+        messagebox.showinfo("Cadastro", "Usuário cadastrado com sucesso!")
+        janela_cadastro.destroy()
+
+    btn_cadastrar = tk.Button(frame, text="Cadastrar", command=salvarCadastro, bg="#4CAF50", fg="white", width=20, font=("Arial", 10))
     btn_cadastrar.pack(pady=(20, 10))
-
-
 
     janela_cadastro.pack()
 
