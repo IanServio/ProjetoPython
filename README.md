@@ -4,4 +4,4 @@
 
 # Resumo do projeto 
 
-- Ao ser executado o projeto apresenta uma tela de Login com Usuario e Senha, ao clicar em Login o sistema vai acessar o arquivo 'usuarios.json' e verificar se tem algum usuarios cadastrado na Lista com as mesmas credenciais na qual o usuario colocou nos inputs.
+- Ao ser executado o projeto apresenta uma tela de Login com Usuario e Senha, ao clicar em Login o sistema vai acessar o arquivo 'data.json' e verificar se tem algum usuarios cadastrado na Lista com as mesmas credenciais na qual o usuario colocou nos inputs.
