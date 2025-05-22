@@ -1,4 +1,7 @@
 # ProjetoPython
+**Instalaçao necessaria para que o projeto seja executado**
+  - Intalar o python (versao mais recente!)
+  - Instalar o pandas : pip install pandas
 
 *Esse projeto consiste em uma simples interface grafica usando a biblioteca Tkinter para a construçao da interface grafica e tambem usando a biblioteca Pandas para a analise de dados dos usuarios* 
 
