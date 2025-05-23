@@ -27,10 +27,27 @@ def handleLogin():
 
     if not usuario_encontrado.empty:
         messagebox.showinfo("Sucesso", "Usuário logado com sucesso!")
-        print(f"✅ Login bem-sucedido para: {login}")
+        print(f"Login bem-sucedido para: {login}")
+        telaPrincipal()
+
     else:
         messagebox.showerror("Erro", "Login ou senha incorretos.")
-        print("❌ Tentativa de login com credenciais inválidas.")
+        print("Tentativa de login com credenciais inválidas.")
+
+def telaPrincipal():
+    root.destroy()
+    janela_principal = tk.Tk()
+    janela_principal.title("Minhas tarefas")
+    janela_principal.geometry("600x600+700+300")
+    titulo = tk.Label(janela_principal, text=("Tarefas"))
+    titulo.pack(pady=5, padx=10)
+    janela_principal.mainloop()
+
+    frame = tk.Frame(janela_principal, bg="white", bd=2, relief=tk.GROOVE)
+    frame.pack(pady=40, padx=40)
+
+    txt_tarefa = tk.Label(frame, text="Adicionar Tarefa:", background="white", font=("Arial", 11))
+    txt_tarefa.pack(pady=40, padx=40)
 
 
 def handleCadastrar():
@@ -39,10 +56,13 @@ def handleCadastrar():
     janela_cadastro = tk.Tk()
     janela_cadastro.geometry("600x600+700+300")
     janela_cadastro.title("Cadastro de usuario")
-    titulo = tk.Label(janela_cadastro, text=("Cadastre-se"))
+    
 
     frame = tk.Frame(janela_cadastro, bg="white", bd=2, relief=tk.GROOVE)
-    frame.pack(pady=20, padx=40)
+    frame.pack(pady=40, padx=40)
+
+    titulo = tk.Label(janela_cadastro, text=("Cadastre-se"))
+    titulo.pack(pady=5, padx=10)
 
     txt_login = tk.Label(frame, text="Login", background="white", font=("Arial", 11))
     txt_login.pack(pady=(20, 5), padx=10)
@@ -95,7 +115,7 @@ def handleCadastrar():
 
 
 frame = tk.Frame(root, bg="white", bd=2, relief=tk.GROOVE)
-frame.pack(pady=20, padx=40)
+frame.pack(pady=50, padx=40)
 
 txt_login = tk.Label(frame, text="Login", background="white", font=("Arial", 11))
 txt_login.pack(pady=(20, 5), padx=10)
