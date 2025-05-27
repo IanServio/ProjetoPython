@@ -1,65 +1,83 @@
 [
     {
-        "login": "admin",
-        "senha": "1234",
-        "email": "admin@admin.com",
-        "numero": 83982466652,
-        "tarefa": ["oi"]
+        "login":"admin",
+        "senha":"1234",
+        "email":"admin@admin.com",
+        "numero":83982466652,
+        "tarefa":[
+            "oi"
+        ]
     },
     {
-        "login": "user",
-        "senha": "abc123",
-        "email": "user@user.com",
-        "numero": 83985426955,
-        "tarefa": []
+        "login":"user",
+        "senha":"abc123",
+        "email":"user@user.com",
+        "numero":83985426955,
+        "tarefa":[
+
+        ]
     },
     {
-        "login": "ian.servio",
-        "senha": "12345",
-        "email": "ian.servio@gmail.com",
-        "numero": 83987666140,
-        "tarefa": ["estudar python arrays"]
+        "login":"ian.servio",
+        "senha":"12345",
+        "email":"ian.servio@gmail.com",
+        "numero":83987666140,
+        "tarefa":[
+            "estudar python arrays"
+        ]
     },
     {
-        "login": "vinicius.maciel",
-        "senha": "98765",
-        "email": "vinicius.maciel@gmail.com",
-        "numero": 83987543266,
-        "tarefa": ["comprar pao e ovo na paddaria do seu Joao"]
+        "login":"vinicius.maciel",
+        "senha":"98765",
+        "email":"vinicius.maciel@gmail.com",
+        "numero":83987543266,
+        "tarefa":[
+            "comprar pao e ovo na paddaria do seu Joao"
+        ]
     },
     {
-        "login": "joao.gabriel",
-        "senha": "87645",
-        "email": "joao.gabriel@gmail.com",
-        "numero": 83985643655,
-        "tarefa": ["teste"]
+        "login":"joao.gabriel",
+        "senha":"87645",
+        "email":"joao.gabriel@gmail.com",
+        "numero":83985643655,
+        "tarefa":[
+            "teste"
+        ]
     },
     {
-        "login": "lucas",
-        "senha": "123",
-        "email": "lucas@teste.com",
-        "numero": 83986645679,
-        "tarefa": []
+        "login":"lucas",
+        "senha":"123",
+        "email":"lucas@teste.com",
+        "numero":83986645679,
+        "tarefa":[
+
+        ]
     },
     {
-        "login": "pedro.silva",
-        "senha": "9090",
-        "email": "pedre@teste.com",
-        "numero": 83976456687,
-        "tarefa": []
+        "login":"pedro.silva",
+        "senha":"9090",
+        "email":"pedre@teste.com",
+        "numero":83976456687,
+        "tarefa":[
+
+        ]
     },
     {
-        "login": "teste",
-        "senha": "teste",
-        "email": "teste@teste.com",
-        "numero": 81357819375,
-        "tarefa": []
+        "login":"teste",
+        "senha":"teste",
+        "email":"teste@teste.com",
+        "numero":81357819375,
+        "tarefa":[
+
+        ]
     },
     {
-        "login": "mariana",
-        "senha": "teste",
-        "email": "mariana@teste.com",
-        "numero": "83987665487",
-        "tarefa": []
+        "login":"mariana",
+        "senha":"teste",
+        "email":"mariana@teste.com",
+        "numero":83987665487,
+        "tarefa":[
+
+        ]
     }
 ]
