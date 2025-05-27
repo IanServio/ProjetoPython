@@ -27,22 +27,42 @@ def handleLogin():
 
     if not usuario_encontrado.empty:
         messagebox.showinfo("Sucesso", "Usuário logado com sucesso!")
-        print(f"✅ Login bem-sucedido para: {login}")
+        print(f"Login bem-sucedido para: {login}")
+        telaPrincipal()
+
     else:
         messagebox.showerror("Erro", "Login ou senha incorretos.")
-        print("❌ Tentativa de login com credenciais inválidas.")
+        print("Tentativa de login com credenciais inválidas.")
+
+def telaPrincipal():
+    root.destroy()
+    janela_principal = tk.Tk()
+    janela_principal.title("Minhas tarefas")
+    janela_principal.geometry("600x600+700+300")
+    titulo = tk.Label(janela_principal, text=("Tarefas"))
+    titulo.pack(pady=5, padx=10)
+    janela_principal.mainloop()
+
+    frame = tk.Frame(janela_principal, bg="white", bd=2, relief=tk.GROOVE)
+    frame.pack(pady=40, padx=40)
+
+    txt_tarefa = tk.Label(frame, text="Adicionar Tarefa:", background="white", font=("Arial", 11))
+    txt_tarefa.pack(pady=40, padx=40)
 
 
 def handleCadastrar():
 
-    root.destroy
+    root.destroy()
     janela_cadastro = tk.Tk()
     janela_cadastro.geometry("600x600+700+300")
     janela_cadastro.title("Cadastro de usuario")
-    titulo = tk.Label(janela_cadastro, text=("Cadastre-se"))
+    
 
     frame = tk.Frame(janela_cadastro, bg="white", bd=2, relief=tk.GROOVE)
-    frame.pack(pady=20, padx=40)
+    frame.pack(pady=40, padx=40)
+
+    titulo = tk.Label(janela_cadastro, text=("Cadastre-se"))
+    titulo.pack(pady=5, padx=10)
 
     txt_login = tk.Label(frame, text="Login", background="white", font=("Arial", 11))
     txt_login.pack(pady=(20, 5), padx=10)
@@ -64,17 +84,38 @@ def handleCadastrar():
     input_numero = tk.Entry(frame, width=30, font=("Arial", 11))
     input_numero.pack(pady=5, padx=10)
 
-    btn_cadastrar = tk.Button(frame, text="Cadastrar", bg="#4CAF50", fg="white", width=20, font=("Arial", 10))
+    
+    def salvarCadastro():
+        login = input_login.get()
+        senha = input_senha.get()
+        email = input_email.get()
+        numero = input_numero.get()
+
+        
+        global df
+        novo_usuario = {"login": login, "senha": senha, "email": email, "numero": numero}
+
+        if not login or not senha or not email or not numero:
+            messagebox.showerror("Erro", "Todos os campos devem ser preenchidos.")
+            return
+        
+        df = pd.concat([df, pd.DataFrame([novo_usuario])], ignore_index=True)
+
+        
+        df.to_json(caminho_arquivo, orient="records", indent=4, force_ascii=False)
+
+        messagebox.showinfo("Cadastro", "Usuário cadastrado com sucesso!")
+        janela_cadastro.destroy()
+
+    btn_cadastrar = tk.Button(frame, text="Cadastrar", command=salvarCadastro, bg="#4CAF50", fg="white", width=20, font=("Arial", 10))
     btn_cadastrar.pack(pady=(20, 10))
-
-
 
     janela_cadastro.pack()
 
 
 
 frame = tk.Frame(root, bg="white", bd=2, relief=tk.GROOVE)
-frame.pack(pady=20, padx=40)
+frame.pack(pady=50, padx=40)
 
 txt_login = tk.Label(frame, text="Login", background="white", font=("Arial", 11))
 txt_login.pack(pady=(20, 5), padx=10)
