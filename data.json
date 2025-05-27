@@ -39,5 +39,12 @@
         "tarefa":[
             "teste"
         ]
+    },
+    {
+        "login":"lucas",
+        "senha":"123",
+        "email":"lucas@teste.com",
+        "numero":"83986645679",
+        "tarefa":null
     }
 ]

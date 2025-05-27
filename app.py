@@ -184,7 +184,7 @@ def handleCadastrar():
         df.to_json(caminho_arquivo, orient="records", indent=4, force_ascii=False)
 
         messagebox.showinfo("Cadastro", "Usuário cadastrado com sucesso!")
-        janela_cadastro.destroy()
+        
 
     btn_cadastrar = tk.Button(frame, text="Cadastrar", command=salvarCadastro, bg="#4CAF50", fg="white", width=20, font=("Arial", 10))
     btn_cadastrar.pack(pady=(20, 10))
