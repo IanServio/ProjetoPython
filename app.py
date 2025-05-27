@@ -107,7 +107,20 @@ def telaPrincipal(usuario_login):
         else:
             messagebox.showwarning("Aviso", "Digite uma tarefa antes de adicionar.")
 
-    
+    def excluir_tarefa(idx_tarefa):
+        import pandas as pd
+        global df
+        df = pd.read_json(caminho_arquivo)
+        idxs = df[df['login'] == usuario_login].index
+        if len(idxs) > 0:
+            idx = idxs[0]
+            tarefas = df.at[idx, 'tarefa']
+            if isinstance(tarefas, list) and 0 <= idx_tarefa < len(tarefas):
+                del tarefas[idx_tarefa]
+                df.at[idx, 'tarefa'] = tarefas
+                df.to_json(caminho_arquivo, orient="records", indent=4, force_ascii=False)
+                atualizar_lista()
+                messagebox.showinfo("Excluir Tarefa", "Tarefa excluída com sucesso.")
 
     btn_adicionar = tk.Button(frame, text="Adicionar Tarefa", command=adicionar_tarefa, bg="#4CAF50", fg="white", width=20, font=("Arial", 10))
     btn_adicionar.pack(pady=(10, 5))
