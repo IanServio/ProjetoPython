@@ -22,32 +22,109 @@ def handleLogin():
     login = input_login.get()
     senha = input_senha.get()
 
-
     usuario_encontrado = df[(df['login'] == login) & (df['senha'] == senha)]
 
     if not usuario_encontrado.empty:
         messagebox.showinfo("Sucesso", "Usuário logado com sucesso!")
         print(f"Login bem-sucedido para: {login}")
-        telaPrincipal()
-
+        telaPrincipal(login)
     else:
         messagebox.showerror("Erro", "Login ou senha incorretos.")
         print("Tentativa de login com credenciais inválidas.")
 
-def telaPrincipal():
+def telaPrincipal(usuario_login):
     root.destroy()
     janela_principal = tk.Tk()
     janela_principal.title("Minhas tarefas")
     janela_principal.geometry("600x600+700+300")
-    titulo = tk.Label(janela_principal, text=("Tarefas"))
+    label_usuario = tk.Label(janela_principal, text=f"Usuário: {usuario_login}", font=("Arial", 12))
+    label_usuario.pack(pady=10)
+
+    titulo = tk.Label(janela_principal, text="Tarefas")
     titulo.pack(pady=5, padx=10)
-    janela_principal.mainloop()
 
     frame = tk.Frame(janela_principal, bg="white", bd=2, relief=tk.GROOVE)
     frame.pack(pady=40, padx=40)
 
-    txt_tarefa = tk.Label(frame, text="Adicionar Tarefa:", background="white", font=("Arial", 11))
-    txt_tarefa.pack(pady=40, padx=40)
+    label_nova_tarefa = tk.Label(frame, text="Nova tarefa:", background="white", font=("Arial", 11))
+    label_nova_tarefa.pack(pady=(10, 5), padx=10)
+
+    entry_tarefa = tk.Entry(frame, width=40, font=("Arial", 11))
+    entry_tarefa.pack(pady=5, padx=10)
+
+    frame_tarefas = tk.Frame(janela_principal, bg="white")
+    frame_tarefas.pack(pady=10)
+
+    def atualizar_lista():
+        for widget in frame_tarefas.winfo_children():
+            widget.destroy()
+        import pandas as pd
+        df_local = pd.read_json(caminho_arquivo)
+        idxs = df_local[df_local['login'] == usuario_login].index
+        if len(idxs) > 0:
+            idx = idxs[0]
+            tarefas = df_local.at[idx, 'tarefa']
+            if isinstance(tarefas, list):
+                for i, t in enumerate(tarefas):
+                    tarefa_frame = tk.Frame(frame_tarefas, bg="white")
+                    tarefa_frame.pack(fill="x", pady=2)
+                    lbl = tk.Label(tarefa_frame, text=t, bg="white", anchor="w", width=40, font=("Arial", 11))
+                    lbl.pack(side="left", padx=5)
+                    btn_excluir = tk.Button(
+                        tarefa_frame,
+                        text="Excluir",
+                        bg="#f44336",
+                        fg="white",
+                        font=("Arial", 9),
+                        command=lambda idx_tarefa=i: excluir_tarefa(idx_tarefa)
+                    )
+                    btn_excluir.pack(side="right", padx=5)
+
+    def adicionar_tarefa():
+        import pandas as pd
+        global df
+        tarefa = entry_tarefa.get()
+        if tarefa:
+            df = pd.read_json(caminho_arquivo)
+            idxs = df[df['login'] == usuario_login].index
+            if len(idxs) > 0:
+                idx = idxs[0]
+                if 'tarefa' not in df.columns or df.at[idx, 'tarefa'] is None:
+                    df.at[idx, 'tarefa'] = []
+                tarefas = df.at[idx, 'tarefa']
+                if not isinstance(tarefas, list):
+                    tarefas = []
+                tarefas.append(tarefa)
+                df.at[idx, 'tarefa'] = tarefas
+                df.to_json(caminho_arquivo, orient="records", indent=4, force_ascii=False)
+                entry_tarefa.delete(0, tk.END)
+                atualizar_lista()
+                messagebox.showinfo("Adicionar Tarefa", f"Tarefa adicionada: {tarefa}")
+            else:
+                messagebox.showerror("Erro", "Usuário não encontrado.")
+        else:
+            messagebox.showwarning("Aviso", "Digite uma tarefa antes de adicionar.")
+
+    def excluir_tarefa(idx_tarefa):
+        import pandas as pd
+        global df
+        df = pd.read_json(caminho_arquivo)
+        idxs = df[df['login'] == usuario_login].index
+        if len(idxs) > 0:
+            idx = idxs[0]
+            tarefas = df.at[idx, 'tarefa']
+            if isinstance(tarefas, list) and 0 <= idx_tarefa < len(tarefas):
+                del tarefas[idx_tarefa]
+                df.at[idx, 'tarefa'] = tarefas
+                df.to_json(caminho_arquivo, orient="records", indent=4, force_ascii=False)
+                atualizar_lista()
+                messagebox.showinfo("Excluir Tarefa", "Tarefa excluída com sucesso.")
+
+    btn_adicionar = tk.Button(frame, text="Adicionar Tarefa", command=adicionar_tarefa, bg="#4CAF50", fg="white", width=20, font=("Arial", 10))
+    btn_adicionar.pack(pady=(10, 5))
+
+    atualizar_lista()
+    janela_principal.mainloop()
 
 
 def handleCadastrar():

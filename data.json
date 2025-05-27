@@ -3,31 +3,41 @@
         "login":"admin",
         "senha":"1234",
         "email":"admin@admin.com",
-        "numero":83982466652
+        "numero":83982466652,
+        "tarefa":[
+            "oi"
+        ]
     },
     {
         "login":"user",
         "senha":"abc123",
         "email":"user@user.com",
-        "numero":83985426955
+        "numero":83985426955,
+        "tarefa":null
     },
     {
         "login":"ian.servio",
         "senha":"12345",
         "email":"ian.servio@gmail.com",
-        "numero":83987666140
+        "numero":83987666140,
+        "tarefa":[
+            "estudar python arrays"
+        ]
     },
     {
         "login":"vinicius.maciel",
         "senha":"98765",
         "email":"vinicius.maciel@gmail.com",
-        "numero":83987543266
+        "numero":83987543266,
+        "tarefa":[
+            "comprar pao e ovo na paddaria do seu Joao"
+        ]
     },
     {
         "login":"joao.gabriel",
         "senha":"87645",
         "email":"joao.gabriel@gmail.com",
-        "numero":83985643655
+        "numero":83985643655,
+        "tarefa":null
     }
-   
 ]
