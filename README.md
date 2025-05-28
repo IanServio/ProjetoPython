@@ -52,7 +52,7 @@ Instale as dependências necessárias:
  - pip install pandas
 
 Execute o projeto:
- - python main.py
+ - python app.py
 
 
 **Telas da Aplicacao**
