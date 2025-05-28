@@ -3,6 +3,7 @@ from tkinter import messagebox
 import pandas as pd
 import os
 
+
 caminho_arquivo = os.path.join(os.path.dirname(__file__), "data.json")
 
 def garantir_tarefa(df):
@@ -28,12 +29,54 @@ def carregar_df():
 
 df = carregar_df()
 
-root = tk.Tk()
-root.title("Sistema de Tarefas")
-root.configure(background="#181818")
-root.minsize(400, 400)
-root.maxsize(800, 800)
-root.geometry("600x600+700+300")
+def main():
+    global root, input_login, input_senha
+    root = tk.Tk()
+    root.title("Sistema de Tarefas")
+    root.configure(background="#181818")
+    root.minsize(400, 400)
+    root.maxsize(800, 800)
+    root.geometry("600x600+700+300")
+
+    titulo_signin = tk.Label(root, text="Sign In", bg="#181818", fg="white", font=("Arial", 20, "bold"))
+    titulo_signin.pack(pady=(30, 0))
+
+
+    frame = tk.Frame(root, bg="#222222", bd=2, relief=tk.GROOVE)
+    frame.pack(pady=50, padx=40)
+
+    txt_login = tk.Label(frame, text="Login", background="#222222", font=("Arial", 11), fg="white")
+    txt_login.pack(pady=(20, 5), padx=10)
+    input_login = tk.Entry(frame, width=30, font=("Arial", 11), bg="#333333", fg="white", insertbackground="white")
+    input_login.pack(pady=5, padx=10)
+
+    txt_senha = tk.Label(frame, text="Senha", background="#222222", font=("Arial", 11), fg="white")
+    txt_senha.pack(pady=(15, 5), padx=10)
+    input_senha = tk.Entry(frame, show="*", width=30, font=("Arial", 11), bg="#333333", fg="white", insertbackground="white")
+    input_senha.pack(pady=5, padx=10)
+
+    btn_acessar = tk.Button(
+        frame, text="Acessar", command=handleLogin,
+        bg="#4CAF50", fg="white", width=20, font=("Arial", 10, "bold"),
+        relief="flat", borderwidth=0, highlightthickness=0, activebackground="#388e3c", activeforeground="white"
+    )
+    btn_acessar.pack(pady=(20, 10), ipadx=10, ipady=4)
+
+    btn_cadastrar = tk.Button(
+        frame, text="Cadastrar-se", command=handleCadastrar,
+        bg="#4aa4fe", fg="white", width=20, font=("Arial", 10, "bold"),
+        relief="flat", borderwidth=0, highlightthickness=0, activebackground="#1976d2", activeforeground="white"
+    )
+    btn_cadastrar.pack(pady=(20, 10), ipadx=10, ipady=4)
+
+    btn_sair = tk.Button(
+        frame, text="Sair", command=root.destroy,
+        bg="#f44336", fg="white", width=20, font=("Arial", 10, "bold"),
+        relief="flat", borderwidth=0, highlightthickness=0, activebackground="#d32f2f", activeforeground="white"
+    )
+    btn_sair.pack(pady=(0, 20), ipadx=10, ipady=4)
+
+    root.mainloop()
 
 def handleLogin():
     global df
@@ -152,6 +195,14 @@ def telaPrincipal(usuario_login):
     janela_principal.mainloop()
 
 def handleCadastrar():
+    global root, input_login, input_senha
+    root.destroy()
+
+    janela_cadastro = tk.Tk()
+    janela_cadastro.geometry("600x600+700+300")
+    janela_cadastro.title("Cadastro de usuario")
+    janela_cadastro.configure(background="#181818")
+
     def salvarCadastro():
         global df
         df = carregar_df()
@@ -177,12 +228,7 @@ def handleCadastrar():
         df.to_json(caminho_arquivo, orient="records", indent=4, force_ascii=False)
         messagebox.showinfo("Cadastro", "Usuário cadastrado com sucesso!")
         janela_cadastro.destroy()
-        root.deiconify()
-
-    janela_cadastro = tk.Toplevel(root)
-    janela_cadastro.geometry("600x600+700+300")
-    janela_cadastro.title("Cadastro de usuario")
-    janela_cadastro.configure(background="#181818")
+        main()
 
     titulo = tk.Label(janela_cadastro, text="Cadastre-se", bg="#181818", fg="white", font=("Arial", 14, "bold"))
     titulo.pack(pady=5, padx=10)
@@ -219,7 +265,7 @@ def handleCadastrar():
 
     def voltar_para_login():
         janela_cadastro.destroy()
-        root.deiconify()
+        main()
 
     btn_voltar = tk.Button(
         frame, text="Voltar", command=voltar_para_login,
@@ -228,41 +274,6 @@ def handleCadastrar():
     )
     btn_voltar.pack(pady=(0, 10), ipadx=10, ipady=4)
 
-titulo_signin = tk.Label(root, text="Sign In", bg="#181818", fg="white", font=("Arial", 20, "bold"))
-titulo_signin.pack(pady=(30, 0))
+    janela_cadastro.mainloop()
 
-frame = tk.Frame(root, bg="#222222", bd=2, relief=tk.GROOVE)
-frame.pack(pady=50, padx=40)
-
-txt_login = tk.Label(frame, text="Login", background="#222222", font=("Arial", 11), fg="white")
-txt_login.pack(pady=(20, 5), padx=10)
-input_login = tk.Entry(frame, width=30, font=("Arial", 11), bg="#333333", fg="white", insertbackground="white")
-input_login.pack(pady=5, padx=10)
-
-txt_senha = tk.Label(frame, text="Senha", background="#222222", font=("Arial", 11), fg="white")
-txt_senha.pack(pady=(15, 5), padx=10)
-input_senha = tk.Entry(frame, show="*", width=30, font=("Arial", 11), bg="#333333", fg="white", insertbackground="white")
-input_senha.pack(pady=5, padx=10)
-
-btn_acessar = tk.Button(
-    frame, text="Acessar", command=handleLogin,
-    bg="#4CAF50", fg="white", width=20, font=("Arial", 10, "bold"),
-    relief="flat", borderwidth=0, highlightthickness=0, activebackground="#388e3c", activeforeground="white"
-)
-btn_acessar.pack(pady=(20, 10), ipadx=10, ipady=4)
-
-btn_cadastrar = tk.Button(
-    frame, text="Cadastrar-se", command=handleCadastrar,
-    bg="#4aa4fe", fg="white", width=20, font=("Arial", 10, "bold"),
-    relief="flat", borderwidth=0, highlightthickness=0, activebackground="#1976d2", activeforeground="white"
-)
-btn_cadastrar.pack(pady=(20, 10), ipadx=10, ipady=4)
-
-btn_sair = tk.Button(
-    frame, text="Sair", command=root.destroy,
-    bg="#f44336", fg="white", width=20, font=("Arial", 10, "bold"),
-    relief="flat", borderwidth=0, highlightthickness=0, activebackground="#d32f2f", activeforeground="white"
-)
-btn_sair.pack(pady=(0, 20), ipadx=10, ipady=4)
-
-root.mainloop()
+main()
