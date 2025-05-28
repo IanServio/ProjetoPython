@@ -1,11 +1,49 @@
-# ProjetoPython
+#Projeto Python: Interface Gráfica com Tkinter e Análise de Dados com Pandas
+   
 
-*Esse projeto consiste em uma simples interface grafica usando a biblioteca Tkinter para a construçao da interface grafica e tambem usando a biblioteca Pandas para a analise de dados dos usuarios* 
+Este projeto consiste em uma interface gráfica simples desenvolvida com a biblioteca Tkinter, juntamente com a biblioteca Pandas para análise de dados dos usuários. O objetivo é criar um sistema de login e cadastro que permita a interação do usuário de forma intuitiva.    
 
-# Resumo do projeto 
+#Resumo do Projeto
+   
 
-- Ao ser executado o projeto apresenta uma tela de Login com Usuario e Senha, ao clicar em Login o sistema vai acessar o arquivo 'data.json' e verificar se tem algum usuarios cadastrado na Lista com as mesmas credenciais na qual o usuario colocou nos inputs. Caso nao tenha nenhuma conta cadastrada na tela de login tera a baixo um botao para Realizar um cadastro, o botao levara o usuario para outra tela na qual ira realizar o cadastro de: 
--Nome
--Sobrenome
--E-mail
--Senha
+Ao executar o projeto, o usuário é apresentado a uma tela de login onde deve inserir seu nome de usuário e senha. Ao clicar no botão "Login", o sistema acessa o arquivo data.json para verificar se existem usuários cadastrados com as credenciais fornecidas.    
+
+Caso não haja nenhuma conta cadastrada com as informações inseridas, o usuário encontrará um botão para realizar um cadastro. Este botão redireciona o usuário para uma nova tela onde ele poderá preencher os seguintes dados:    
+
+Nome
+Sobrenome
+E-mail
+Senha    
+Funcionalidades
+   
+
+*Tela de Login: Permite que os usuários insiram suas credenciais para acessar o sistema.*
+*Cadastro de Usuário: Usuários podem se cadastrar caso ainda não tenham uma conta.*
+*Validação de Credenciais: O sistema verifica as credenciais inseridas em relação aos dados armazenados no arquivo data.json.*
+*Armazenamento de Dados: Os dados dos usuários são armazenados em formato JSON, facilitando a manipulação e análise com a biblioteca Pandas.*    
+*Tecnologias Utilizadas*
+   
+
+Python: Linguagem de programação utilizada para o desenvolvimento do projeto.
+Tkinter: Biblioteca para a criação da interface gráfica.
+Pandas: Biblioteca para análise e manipulação de dados. 
+
+
+
+**Como Executar o Projeto**
+
+Clone o repositório:
+ - git clone https://github.com/IanServio/ProjetoPython.git
+
+Navegue até o diretório do projeto:
+ - cd projeto-python
+
+Instale as dependências necessárias:
+ - pip install pandas
+
+Execute o projeto:
+ - python main.py
+
+
+
+
