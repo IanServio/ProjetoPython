@@ -45,5 +45,14 @@ Execute o projeto:
  - python main.py
 
 
+**Telas da Aplicacao**
 
+Tela de login:
+![telalogin](https://github.com/user-attachments/assets/c7d5a01d-7e63-4bb6-87a1-66c91e7e75ac)
+
+Tela de Cadastro:
+![telacadstro](https://github.com/user-attachments/assets/b54f6111-bef4-4e32-904a-a43785bc098f)
+
+Tela Cadastro de tarefas:
+![telatarefas](https://github.com/user-attachments/assets/ae319847-351d-417c-9412-f8fba64eb942)
 
