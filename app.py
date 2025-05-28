@@ -159,7 +159,7 @@ def telaPrincipal(usuario_login):
                 tarefas = df.at[idx, 'tarefa']
                 if not isinstance(tarefas, list):
                     tarefas = []
-                tarefas.append(tarefa)
+                tarefas.insert(0,tarefa)
                 df.at[idx, 'tarefa'] = tarefas
                 df.to_json(caminho_arquivo, orient="records", indent=4, force_ascii=False)
                 entry_tarefa.delete(0, tk.END)
