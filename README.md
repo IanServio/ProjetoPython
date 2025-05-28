@@ -10,11 +10,16 @@ Ao executar o projeto, o usuário é apresentado a uma tela de login onde deve i
 
 Caso não haja nenhuma conta cadastrada com as informações inseridas, o usuário encontrará um botão para realizar um cadastro. Este botão redireciona o usuário para uma nova tela onde ele poderá preencher os seguintes dados:    
 
-Nome
-Sobrenome
-E-mail
-Senha    
-Funcionalidades
+-Nome
+
+-Sobrenome
+
+-E-mail
+
+-Senha
+
+-Funcionalidades
+
    
 
 *Tela de Login: Permite que os usuários insiram suas credenciais para acessar o sistema.*
