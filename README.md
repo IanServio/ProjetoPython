@@ -23,9 +23,14 @@ Caso não haja nenhuma conta cadastrada com as informações inseridas, o usuár
    
 
 *Tela de Login: Permite que os usuários insiram suas credenciais para acessar o sistema.*
+
 *Cadastro de Usuário: Usuários podem se cadastrar caso ainda não tenham uma conta.*
+
 *Validação de Credenciais: O sistema verifica as credenciais inseridas em relação aos dados armazenados no arquivo data.json.*
-*Armazenamento de Dados: Os dados dos usuários são armazenados em formato JSON, facilitando a manipulação e análise com a biblioteca Pandas.*    
+
+*Armazenamento de Dados: Os dados dos usuários são armazenados em formato JSON, facilitando a manipulação e análise com a biblioteca Pandas.*  
+
+
 *Tecnologias Utilizadas*
    
 
