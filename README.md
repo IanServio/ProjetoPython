@@ -1,4 +1,4 @@
-#🐍 Projeto Python: Interface Gráfica com Tkinter e Análise de Dados com Pandas
+🐍 #Projeto Python: Interface Gráfica com Tkinter e Análise de Dados com Pandas
 
 Este projeto apresenta uma aplicação simples e funcional desenvolvida em Python, utilizando Tkinter para a interface gráfica e Pandas para análise e manipulação de dados. O objetivo principal é criar um sistema de login e cadastro de usuários com armazenamento em formato JSON, oferecendo uma interface amigável e intuitiva.
 
