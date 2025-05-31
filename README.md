@@ -6,20 +6,25 @@ Ao iniciar a aplicação, o usuário é direcionado para uma tela de login, onde
 
 Se as credenciais não existirem, o usuário poderá clicar no botão de cadastro, que o levará a uma nova tela onde deverá preencher os seguintes campos:
 
-Nome
+ - Nome
 
-Sobrenome
+ - Sobrenome
 
-E-mail
+ - E-mail
 
-Senha
+ - Senha
 
 ⚙️ Funcionalidades
 ✅ Tela de Login: Entrada de credenciais com verificação de dados.
+
 ✅ Cadastro de Usuário: Interface para criação de novas contas.
+
 ✅ Validação de Credenciais: Conferência com dados armazenados em data.json.
+
 ✅ Armazenamento em JSON: Estrutura leve e de fácil manipulação com o Pandas.
+
 ✅ Análise de Dados: Possibilidade de aplicar técnicas de análise com a biblioteca Pandas.
+
 
 🛠 Tecnologias Utilizadas
 Python 3.x – Linguagem principal do projeto
