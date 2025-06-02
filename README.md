@@ -16,6 +16,7 @@ Se as credenciais não existirem, o usuário poderá clicar no botão de cadastr
  - Senha
 
 ⚙️ Funcionalidades
+
 ✅ Tela de Login: Entrada de credenciais com verificação de dados.
 
 ✅ Cadastro de Usuário: Interface para criação de novas contas.
